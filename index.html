@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/usedCars.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
+    <title>Oakland Dealership</title>
+    <link rel="stylesheet" href="./css/index_style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#"><h1>Oakland Dealership</h1></a>
+      <a href="mailto:fakemail@oakland.edu"><p>Contact Us</p></a>
+    </header>
+
+    <div class="cars">
+      <div class="filter">
+        <h2>Filter Cars</h2>
+        <form id="form">
+          <input
+            class="input"
+            type="number"
+            id="min-year"
+            placeholder="min year"
+          />
+          <input
+            class="input"
+            type="number"
+            id="max-year"
+            placeholder="max year"
+          />
+          <div class="make-container">
+            <label for="Toyota">Toyota</label>
+            <input class="box" type="checkbox" id="Toyota" />
+            <label for="Ford">Ford</label>
+            <input class="box" type="checkbox" id="Ford" />
+            <label for="Lexus">Lexus</label>
+            <input class="box" type="checkbox" id="Lexus" />
+            <label for="Tesla">Tesla</label>
+            <input class="box" type="checkbox" id="Tesla" />
+          </div>
+          <input
+            class="input"
+            type="number"
+            id="min-mileage"
+            placeholder="min mileage"
+          />
+          <input
+            class="input"
+            type="number"
+            name=""
+            id="max-mileage"
+            placeholder="max mileage"
+          />
+          <input
+            class="input"
+            type="number"
+            name=""
+            id="min-price"
+            placeholder="min price"
+          />
+          <input
+            class="input"
+            type="number"
+            name=""
+            id="max-price"
+            placeholder="max price"
+          />
+          <div class="color-container">
+            <label for="Silver">Silver</label>
+            <input class="box" type="checkbox" id="Silver" />
+            <label for="Gold">Gold</label>
+            <input class="box" type="checkbox" id="Gold" />
+            <label for="Black">Black</label>
+            <input class="box" type="checkbox" id="Black" />
+          </div>
+        </form>
+        <button type="submit" class="submit-btn">Filter</button>
+      </div>
+      <div id="result" class="container"></div>
+    </div>
+  </body>
+</html>
