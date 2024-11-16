@@ -31,16 +31,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .cars .filter {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin-bottom: 415px;
+  align-items: first baseline;
+  justify-content: space-evenly;
+  width: 700px;
+  margin-bottom: 625px;
 }
 
 .cars .filter .input,
@@ -48,7 +47,28 @@ header {
   margin-top: 15px;
 }
 
-/* Reached breakpoint - goto JS file and return after end of JS file */
+#min-price,
+#max-price,
+#min-mileage,
+#max-mileage,
+#min-year,
+#max-year {
+  width: 150px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+#min-price,
+#max-price,
+#min-mileage,
+#max-mileage,
+#min-year,
+#max-year {
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
 
 .container {
   width: 100%;

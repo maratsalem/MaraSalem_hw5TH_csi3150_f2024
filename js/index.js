@@ -1,73 +1,81 @@
 import { usedCars } from "./usedCars.js";
 
 const results = document.getElementById("result");
-const form = document.getElementById("form");
-form.addEventListener("submit", setSearch());
+const form = document.getElementById("search-form");
 
-function setSearch() {
-  let minYear = document.getElementById("min-year");
-  let maxYear = document.getElementById("max-year");
-  let Toyota = document.getElementById("Toyota");
-  let Ford = document.getElementById("Ford");
-  let minMileage = document.getElementById("min-mileage");
-  let maxMileage = document.getElementById("max-mileage");
-  let minPrice = document.getElementById("min-price");
-  let maxPrice = document.getElementById("max-price");
-  let silver = document.getElementById("Silver");
-  let gold = document.getElementById("Gold");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  applyFilters();
+});
 
-  const userEntries = [
-    minYear,
-    maxYear,
-    Toyota,
-    Ford,
-    minMileage,
-    maxMileage,
-    minPrice,
-    maxPrice,
-    silver,
-    gold,
-  ];
+function applyFilters() {
+  const minYear = parseInt(document.getElementById("min-year").value) || 0;
+  const maxYear =
+    parseInt(document.getElementById("max-year").value) || Infinity;
 
-  displayCars(userEntries);
+  const makes = [];
+  document.querySelectorAll("#make input:checked").forEach((input) => {
+    makes.push(input.id);
+  });
+
+  const maxMileage =
+    parseInt(document.getElementById("max-mileage").value) || Infinity;
+
+  const minPrice = parseInt(document.getElementById("min-price").value) || 0;
+  const maxPrice =
+    parseInt(document.getElementById("max-price").value) || Infinity;
+
+  const colors = [];
+  document.querySelectorAll("#color input:checked").forEach((input) => {
+    colors.push(input.id);
+  });
+
+  // Filter cars based on conditions
+  const filteredCars = usedCars.filter((car) => {
+    return (
+      car.year >= minYear &&
+      car.year <= maxYear &&
+      (makes.length === 0 || makes.includes(car.make)) &&
+      car.mileage <= maxMileage &&
+      car.price >= minPrice &&
+      car.price <= maxPrice &&
+      (colors.length === 0 || colors.includes(car.color))
+    );
+  });
+
+  displayCars(filteredCars);
 }
 
-function displayCars(entries) {
-  results.innerHTML = ""; // Clear previous cars
+function displayCars(cars) {
+  results.innerHTML = ""; // Clear previous results
 
-  usedCars.forEach((car) => {
-    // Create and insert HTML elements to show car information
+  if (cars.length === 0) {
+    results.innerHTML = "<p>No cars match the filter criteria.</p>";
+    return;
+  }
+
+  cars.forEach((car) => {
+    const { year, make, model, mileage, price, color, gasMileage } = car;
 
     const carCard = document.createElement("div");
     carCard.classList.add("car-card");
 
-    const { year, make, model, mileage, price, color, gasMileage } = car;
-    const carType = year + " " + make + " " + model;
-
-    if (price < 20000 && price > 5000) {
-      carCard.innerHTML = `
-      <div class="column">
+    carCard.innerHTML = `
       <div class="card">
-        <div class="card-content">
-          <div class="card-header">
-            <h3 style="font-weight: 600">${carType}</h3>
-          </div>
-          <div class="car-info">
-            <p>Mileage: ${mileage}mi</p>
-            <p>Price: $${price}</p>
-            <p>Color: ${color}</p>
-            <p>Mileage: ${gasMileage}</p>
-          </div>
+        <div class="card-header">
+          <h3>${year} ${make} ${model}</h3>
+        </div>
+        <div class="car-info">
+          <p>Mileage: ${mileage}mi</p>
+          <p>Price: $${price}</p>
+          <p>Color: ${color}</p>
+          <p>Gas Mileage: ${gasMileage}</p>
         </div>
       </div>
-    </div>
     `;
-      results.appendChild(carCard);
-    } else {
-      return null;
-    }
+    results.appendChild(carCard);
   });
 }
 
 // Display all cars initially
-displayCars();
+displayCars(usedCars);
