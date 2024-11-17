@@ -14,8 +14,8 @@ function applyFilters() {
     parseInt(document.getElementById("max-year").value) || Infinity;
 
   const makes = [];
-  document.querySelectorAll("#make input:checked").forEach((input) => {
-    makes.push(input.id);
+  document.querySelectorAll("#make input:checked").forEach((carMake) => {
+    makes.push(carMake.id);
   });
 
   const maxMileage =
@@ -26,8 +26,8 @@ function applyFilters() {
     parseInt(document.getElementById("max-price").value) || Infinity;
 
   const colors = [];
-  document.querySelectorAll("#color input:checked").forEach((input) => {
-    colors.push(input.id);
+  document.querySelectorAll("#color input:checked").forEach((carColor) => {
+    colors.push(carColor.id);
   });
 
   // Filter cars based on conditions

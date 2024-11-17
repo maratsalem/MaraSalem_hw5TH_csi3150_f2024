@@ -1,81 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="./js/usedCars.js" type="module"></script>
-  <script src="./js/index.js" type="module"></script>
-  <title>Oakland Dealership</title>
-  <link rel="stylesheet" href="./css/index_style.css" />
-</head>
-<body>
-  <header>
-    <a href="#"><h1>Oakland Dealership</h1></a>
-    <a href="mailto:fakemail@oakland.edu"><p>Contact Us</p></a>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/usedCars.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
+    <title>Oakland Used Cars</title>
+    <link rel="stylesheet" href="./css/index_style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#"><h1>Used Cars Dealership</h1></a>
+      <a href="mailto:fakemail@oakland.edu"><p>Contact Us</p></a>
+    </header>
+    <hr />
+    <div class="cars">
+      <div class="filter">
+        <h2>Filter Cars</h2>
+        <form id="search-form">
+          <label for="year-range">Car Year:</label>
+          <input
+            class="input"
+            type="number"
+            id="min-year"
+            placeholder="Min year"
+          />
+          <input
+            class="input"
+            type="number"
+            id="max-year"
+            placeholder="Max year"
+          />
 
-  <div class="cars">
-    <div class="filter">
-      <h2>Filter Cars</h2>
-      <form id="search-form">
-        <label for="year-range">Car Year Range:</label>
-        <input
-          class="input"
-          type="number"
-          id="min-year"
-          placeholder="Min year"
-        />
-        <input
-          class="input"
-          type="number"
-          id="max-year"
-          placeholder="Max year"
-        />
+          <label for="make"></label>
+          <div id="make">
+            <div class="make-container">
+              <h3>Select Make</h3>
+              <input type="checkbox" id="Toyota" class="box" />
+              <label for="Toyota">Toyota</label>
+              <input type="checkbox" id="Honda" class="box" />
+              <label for="Honda">Honda</label>
+              <input type="checkbox" id="Ford" class="box" />
+              <label for="Ford">Ford</label>
+              <input type="checkbox" id="Nissan" class="box" />
+              <label for="Nissan">Nissan</label>
+              <input type="checkbox" id="Chevrolet" class="box" />
+              <label for="Chevrolet">Chevrolet</label>
+              <input type="checkbox" id="Volkswagen" class="box" />
+              <label for="Volkswagen">Volkswagen</label>
+              <input type="checkbox" id="Hyundai" class="box" />
+              <label for="Hyundai">Hyundai</label>
+              <input type="checkbox" id="Subaru" class="box" />
+              <label for="Subaru">Subaru</label>
+              <input type="checkbox" id="Mazda" class="box" />
+              <label for="Mazda">Mazda</label>
+              <input type="checkbox" id="Kia" class="box" />
+              <label for="Kia">Kia</label>
+              <input type="checkbox" id="Dodge" class="box" />
+              <label for="Dodge">Dodge</label>
+              <input type="checkbox" id="Cadillac" class="box" />
+              <label for="Cadillac">Cadillac</label>
+              <input type="checkbox" id="Jaguar" class="box" />
+              <label for="Jaguar">Jaguar</label>
+              <input type="checkbox" id="Tesla" class="box" />
+              <label for="Tesla">Tesla</label>
+              <input type="checkbox" id="Porsche" class="box" />
+              <label for="Porsche">Porsche</label>
+              <input type="checkbox" id="Lexus" class="box" />
+              <label for="Lexus">Lexus</label>
+              <input type="checkbox" id="BMW" class="box" />
+              <label for="BMW">BMW</label>
+            </div>
+          </div>
 
-        <label for="make">Car Make:</label>
-        <div id="make">
-          <input type="checkbox" id="Toyota" /> <label for="Toyota">Toyota</label>
-          <input type="checkbox" id="Honda" /> <label for="Honda">Honda</label>
-          <input type="checkbox" id="Ford" /> <label for="Ford">Ford</label>
-          <input type="checkbox" id="Nissan" /> <label for="Nissan">Nissan</label>
-          <!-- Add other makes as needed -->
-        </div>
+          <label for="max-mileage">Max Mileage:</label>
+          <input
+            class="input"
+            type="number"
+            id="max-mileage"
+            placeholder="Max mileage"
+          />
+          <div class="price-container">
+            <label for="price-range">Price Range:</label>
+            <input
+              class="input"
+              type="number"
+              id="min-price"
+              placeholder="Min price"
+            />
+            <input
+              class="input"
+              type="number"
+              id="max-price"
+              placeholder="Max price"
+            />
+          </div>
 
-        <label for="max-mileage">Max Mileage:</label>
-        <input
-          class="input"
-          type="number"
-          id="max-mileage"
-          placeholder="Max mileage"
-        />
+          <label for="color">Car Color:</label>
+          <div id="color">
+            <input type="checkbox" id="Silver" />
+            <label for="Silver">Silver</label>
+            <input type="checkbox" id="White" />
+            <label for="White">White</label>
+            <input type="checkbox" id="Black" />
+            <label for="Black">Black</label>
+            <input type="checkbox" id="Blue" />
+            <label for="Blue">Blue</label>
+            <input type="checkbox" id="Red" />
+            <label for="Red">Red</label>
+            <input type="checkbox" id="Gray" />
+            <label for="Gray">Gray</label>
+            <input type="checkbox" id="Green" />
+            <label for="Green">Green</label>
+          </div>
 
-        <label for="price-range">Price Range:</label>
-        <input
-          class="input"
-          type="number"
-          id="min-price"
-          placeholder="Min price"
-        />
-        <input
-          class="input"
-          type="number"
-          id="max-price"
-          placeholder="Max price"
-        />
-
-        <label for="color">Car Color:</label>
-        <div id="color">
-          <input type="checkbox" id="Silver" /> <label for="Silver">Silver</label>
-          <input type="checkbox" id="White" /> <label for="White">White</label>
-          <input type="checkbox" id="Black" /> <label for="Black">Black</label>
-          <input type="checkbox" id="Blue" /> <label for="Blue">Blue</label>
-          <!-- Add other colors as needed -->
-        </div>
-
-        <button type="submit" class="submit-btn">Filter</button>
-      </form>
+          <button type="submit" class="submit-btn">Filter</button>
+        </form>
+      </div>
+      <div id="result" class="container"></div>
     </div>
-    <div id="result" class="container"></div>
-  </div>
-</body>
+  </body>
 </html>

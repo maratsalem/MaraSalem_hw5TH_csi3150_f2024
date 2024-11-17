@@ -1,23 +1,20 @@
-/* Import font styling from google fonts - src: fonts.google.com */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: "Poppins", "Courier New", Courier, monospace;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
+  font-family: "Markazi Text", serif;
+  --text: #244855;
+  --primary: #ffffff;
 }
 
 body {
-  color: #fff;
-  background-color: #212121;
-  padding: 1.5rem;
+  color: var(--text);
+  background-color: var(--primary);
+  padding: 2rem;
+  font-size: 23px;
 }
 
 header {
@@ -27,10 +24,17 @@ header {
   justify-content: space-between;
 }
 
+a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 23px;
+}
+
 .cars {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 25px;
 }
 
 .cars .filter {
@@ -38,8 +42,9 @@ header {
   flex-direction: column;
   align-items: first baseline;
   justify-content: space-evenly;
-  width: 700px;
-  margin-bottom: 625px;
+  width: 500px;
+  border: 2px solid var(--text);
+  padding: 20px;
 }
 
 .cars .filter .input,
@@ -47,87 +52,95 @@ header {
   margin-top: 15px;
 }
 
-#min-price,
-#max-price,
-#min-mileage,
-#max-mileage,
-#min-year,
-#max-year {
-  width: 150px;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+.cars .filter .submit-btn {
+  display: inline-block;
+  background-color: var(--text);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 23px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid var(--text);
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+.cars .filter-button .submit-btn:hover {
+  background-color: transparent;
+  color: var(--text);
+  border: 2px solid var(--text);
 }
 
 #min-price,
 #max-price,
-#min-mileage,
 #max-mileage,
 #min-year,
 #max-year {
+  width: 110px;
+  padding: 8px;
+  font-size: 21px;
+  border-radius: 2px;
+  border: 2px solid var(--text);
   margin-right: 10px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
-.container {
+#max-mileage {
+  width: 150px;
+}
+
+#Toyota,
+#Honda,
+#Ford,
+#Nissan,
+#Chevrolet,
+#Volkswagen,
+#Hyundai,
+#Subaru,
+#Mazda,
+#Kia,
+#Dodge,
+#Cadillac,
+#Jaguar,
+#Tesla,
+#Porsche,
+#Lexus,
+#BMW {
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.cars .container {
   width: 100%;
   max-height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 50px;
 }
 
-/* grab the selectors created in the JS file */
 .container .card {
   position: relative;
-  font-size: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 0.4rem;
-  line-height: 20px;
-  width: 285px;
-  height: 150px;
-  overflow: hidden;
+  font-size: 21px;
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  width: 290px;
+  height: 180px;
   transition: all 0.5s ease;
-}
-
-.container .card .card-content {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 100px 10px 5px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(51, 55, 69, 0),
-    rgba(16, 21, 40, 0.95)
-  );
-  transition: all 0.5s ease;
-}
-
-.container .card .card-content .card-header {
-  padding: 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.container .card .card-content .card-btn {
-  color: #fff;
-  cursor: pointer;
-  padding: 6px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.4rem;
-  transition: all 0.5s ease;
+  padding: 15px;
 }
 
 .container .card:hover {
+  transition: all 0.5s ease;
+  background-image: linear-gradient(
+    180deg,
+    rgba(51, 55, 69, 0),
+    rgba(177, 223, 245, 0.95)
+  );
   cursor: pointer;
-}
-
-.container .card:hover .card-content {
-  background-image: linear-gradient(180deg, rgba(51, 55, 69, 0), #101528 55%);
 }
 
 #result {
@@ -137,15 +150,4 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-/* responsive design aspects: you can check the rest like title font size reduction etc. */
-@media screen and (max-width: 550px) {
-  .search-box {
-    justify-content: center;
-  }
-
-  .search-box form {
-    margin-top: 10px;
-  }
 }
