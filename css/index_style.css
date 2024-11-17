@@ -55,7 +55,7 @@ a {
 .cars .filter .submit-btn {
   display: inline-block;
   background-color: var(--text);
-  color: var(--text);
+  color: var(--primary);
   font-family: inherit;
   font-size: 23px;
   font-weight: 600;
